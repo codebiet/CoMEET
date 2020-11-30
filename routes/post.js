@@ -48,7 +48,7 @@ route.post('/makePost',upload.single('avatar'),async (req,res)=>{
         })
         temp.save()
         console.log(req.user)
-        return res.send('hoooo')
+        return res.redirect('/');
     }
     else{
         let temp = await new post({

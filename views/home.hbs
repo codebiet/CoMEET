@@ -8,10 +8,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script  src="./jquery.js"></script>
     <script src="./script.js"></script>
-   {{!-- <link rel="stylesheet" href="./style.css"> --}}
+    <style>
+        body{
+            background-color: #00d4f0;
+background-image: url("https://www.transparenttextures.com/patterns/redox-02.png");
+        }
+         </style> 
+    {{!-- <link rel="stylesheet" href="./style.css"> --}}
 </head>
 <body>
-<div class="container p-3 mt-2 shadow-sm" style="border-radius :20px; box-shadow : 0px 0px 12px 9px #3333;margin-bottom: 10px;">
+<div class="container p-3 mt-2 shadow-sm" style="background-color:aliceblue ; border-radius :20px; box-shadow : 0px 0px 12px 9px #3333;margin-bottom: 10px;">
     <h2 class="text-success">CREATE YOUR POST !!!</h2>
     <br>
     <form method="POST" action="/posts/makePost" enctype="multipart/form-data">
@@ -23,17 +29,24 @@
         <div class="form-group">
             <label for="postDesc">Description</label>
             <textarea class="form-control" id="postDesc" rows="3" name="postDesc"></textarea>
-            <input type="text" name="link" id="" placeholder="google link">
+            </div>
+            <div class="form-group">
+                <label for="">URL:</label>
+            <input type="text" name="link" id="" placeholder="Link...">&nbsp;&nbsp;
+            <input type="file" name="avatar" id="">
+            </div>
+            
+        
+        <div class="form-group">
+            <button class="btn btn-primary" id="postSub">submit</button>
         </div>
-        <input type="file" name="avatar" id="">
-        <button class="btn btn-primary" id="postSub">submit</button>
     </form>
 </div>
-    
+    <br>
     <div class="container ">
-        <h2 class="text-success">RECENT POSTS</h2>
+        <h2 style="color:#206a5d;text-shadow:0px 0px 2px green" ><strong><h2>RECENT POSTS</h2></strong></h2>
         {{#each result as |data|}}
-            <div class="card text-center" style="border-radius: 20px;box-shadow : 0px 0px 8px 7px #33333">
+            <div class="card text-center" style="border-radius: 20px;box-shadow : 0px 0px 8px 7px #33333; margin-top:2rem;background-image : url(/images/post.jpg);">
             <div class="row m-2">
                 <div class="col-md-6 col-sm-12">
                     <div class="row text-left">
@@ -55,7 +68,7 @@
             </div>
           
 
-            <div class="card-body">
+            <div class="card-body mt-2" style="margin:2rem">
               <h5 class="card-title text-left">{{data.title}}</h5>
               <p class="card-text text-left">{{data.body}}{{#if data.like}}
                   <a href={{data.like}}>{{data.like}}</a>
@@ -69,9 +82,7 @@
              {{/if}}
                </div>
         
-             <div class="col-12" id="list">
-                
-            </div>
+            
           </div>
         {{/each}}
         
