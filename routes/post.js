@@ -5,14 +5,14 @@ let count = 0
 let {post} = require('../models/post')
 let path = require('path')
 
-
+let d = Date.now() 
 let storage = multer.diskStorage({
     destination : __dirname + '/media', 
     filename: function (req, file, cb) {
         count = count + 1
         
         const uniqueSuffix = 'avatar' + path.extname(file.originalname)
-        cb(null, Date.now() + uniqueSuffix)
+        cb(null, d + uniqueSuffix)
     }
 })
 
@@ -34,7 +34,7 @@ route.post('/postSave',(req,res)=>{
 })
 
 route.post('/makePost',upload.single('avatar'),async (req,res)=>{
-    let d = Date.now()
+   
     if(req.file){
         let temp = await new post({
             title : req.body.postTitle,
@@ -62,7 +62,7 @@ route.post('/makePost',upload.single('avatar'),async (req,res)=>{
         })
         temp.save()
         console.log(req.user)
-        return res.send('hoooo')
+        return res.redirect('/')
     }
 })
 
