@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script  src="./jquery.js"></script>
+    <script src="./script.js"></script>
+   
+</head>
+<body>
+<div class="container p-3 mt-2 shadow-sm" style="border-radius :20px; box-shadow : 0px 0px 12px 9px #3333;margin-bottom: 10px;">
+    <h2 class="text-success">CREATE YOUR POST !!!</h2>
+    <br>
+    <form method="POST" action="/posts/makePost" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="postTitle">Title</label>
+            <input type="text" name="postTitle" class="form-control" id="postTitle" placeholder="post titile">
+        </div>
+        
+        <div class="form-group">
+            <label for="postDesc">Description</label>
+            <textarea class="form-control" id="postDesc" rows="3" name="postDesc"></textarea>
+            <input type="text" name="link" id="" placeholder="google link">
+        </div>
+        <input type="file" name="avatar" id="">
+        <button class="btn btn-primary" id="postSub">submit</button>
+    </form>
+</div>
+    
+    <div class="container ">
+        <h2 class="text-success">RECENT POSTS</h2>
+        {{#each result as |data|}}
+            <div class="card text-center" style="border-radius: 20px;box-shadow : 0px 0px 8px 7px #33333">
+            <div class="row m-2">
+                <div class="col-md-6 col-sm-12">
+                    <div class="row text-left">
+                   <div class="col-3 text-right">
+                   <img src="/images/1.png" height="100" width="100"  alt="" srcset="" class="rounded-circle">
+                   </div>
+                        <div class="col-9 ">
+                                <div class="row text-left">
+                                    <div class="col-12"> <b class="display-5">{{data.name}}</b>
+                                    </div>
+                                    <div class="col-12">
+                                        <small>{{data.specialist}}</small></div>
+                                    <div class="col-12">{{data.branch}} {{data.year}} </div>
+                                </div>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+          
+
+            <div class="card-body">
+              <h5 class="card-title text-left">{{data.title}}t</h5>
+              <p class="card-text text-left">{{data.body}}{{#if data.like}}
+                  <a href={{data.like}}>{{data.like}}</a>
+                  
+              {{/if}}</p>
+              {{#if data.media}} 
+              <div class="row justify-content-md-center">
+                  
+              <embed src={{data.media}}  class="col-6" alt="" srcset="" style="text-align: center;height:100;width:300px;"></embed>
+              </div>
+             {{/if}}
+               </div>
+        
+             <div class="col-12" id="list">
+                
+            </div>
+          </div>
+        {{/each}}
+        
+    </div>
+
+</body>
+
+</html>
