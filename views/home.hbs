@@ -55,13 +55,23 @@ background-image: url("https://www.transparenttextures.com/patterns/redox-02.png
                    </div>
                         <div class="col-9 ">
                                 <div class="row text-left">
-                                    <div class="col-12"> <b class="display-5">{{data.name}}</b>
+                                    <div class="col-12">
+                                        <form action="/posts/profile" method="get">
+                                        <input type="text" name = "data"value={{data.email}} style="border: none;font-weight : bolder;">
+                                        <br>
+                                          <b class="display-5" >{{data.name}}</b>
+                                         <button type="submit" style="border: none;border-radius :40px;">
+                                              view
+                                         </button>
+                                        </form>
+                                        
                                     </div>
                                     <div class="col-12">
                                         <small>{{data.specialist}}</small></div>
                                     <div class="col-12">{{data.branch}} , {{data.year}} </div>
                                 </div>
                         </div>
+                        
                     </div>
             
                 </div>
@@ -81,9 +91,9 @@ background-image: url("https://www.transparenttextures.com/patterns/redox-02.png
               </div>
              {{/if}}
                </div>
-        
-            
+              
           </div>
+          
         {{/each}}
         
     </div>

@@ -4,7 +4,7 @@ const session = require('express-session')
 let count = 0
 let {post} = require('../models/post')
 let path = require('path')
-
+let u = require('../models/user')
 let d = Date.now() 
 let storage = multer.diskStorage({
     destination : __dirname + '/media', 
@@ -29,8 +29,11 @@ route.get('/s',async(req,res)=>{
     console.log(result)
     res.send(result)
 })
-route.post('/postSave',(req,res)=>{
-    
+route.get('/profile',async(req,res)=>{
+    let avatar = req.query.data
+    console.log(req.query)
+    let result = await u.findOne({email  : avatar})
+    res.render('user_profile1',{user : result})
 })
 
 route.post('/makePost',upload.single('avatar'),async (req,res)=>{
@@ -41,6 +44,7 @@ route.post('/makePost',upload.single('avatar'),async (req,res)=>{
             body : req.body.postDesc,
             name : req.user.name,
             year : req.user.Year,
+            email : req.user.email,
             branch : req.user.Branch,
             specialist : req.user.Specilist,
             like :req.body.link,        
@@ -56,6 +60,7 @@ route.post('/makePost',upload.single('avatar'),async (req,res)=>{
             body : req.body.postDesc,
             name : req.user.name,
             year : req.user.Year,
+            email : req.user.email,
             branch : req.user.Branch,
             specialist : req.user.Specilist,
             like : req.body.link,        

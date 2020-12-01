@@ -8,7 +8,8 @@ let posSchema = mongoose.Schema({
     comment : Array,
     media : String,
     year : String,
-    branch : String
+    branch : String,
+    email:String,
 
 })
 let post = mongoose.model('post',posSchema)
