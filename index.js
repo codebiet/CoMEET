@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.urlencoded());
 app.use(cookieParser());
 app.use('/images',express.static(__dirname + '/routes/media'))
+app.use('/profile',express.static(__dirname + '/routes/profile'))
 
 app.use('/',express.static(__dirname + '/public'))
 app.use(express.static('assests'));

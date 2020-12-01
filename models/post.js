@@ -10,7 +10,7 @@ let posSchema = mongoose.Schema({
     year : String,
     branch : String,
     email:String,
-
+    pic : String
 })
 let post = mongoose.model('post',posSchema)
 module.exports = {

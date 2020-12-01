@@ -53,6 +53,10 @@ const userSchema = new mongoose.Schema({
     hobbies:{
         type:String,
         required:false
+    },
+    profile:{
+        type:String,
+        required:false
     }
 },{
     timestamps: true

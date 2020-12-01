@@ -8,7 +8,7 @@
     <div class="card-body">
       <h6 class="card-title"><center>Build Up CoMEET Profile</center></h6>
       <!-- ////////////////////////////////////////////////////////////////////////////////// -->
-      <form action="/profile" method="POST">
+      <form action="/profile" method="POST" enctype="multipart/form-data">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputFname">First Name</label>
@@ -92,7 +92,9 @@
           <input type="text" class="form-control" placeholder="Hobbies" name="hobbies" value=<%=result.hobbies%>>
         </div
 
-    
+        <div class="form-group">
+          <input type="file" name= "user"/>
+        </div>
         <center><button type="submit" class="btn btn-primary">Save</button></center>        
       </form>
     </div>

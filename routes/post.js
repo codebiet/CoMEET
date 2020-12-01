@@ -37,7 +37,9 @@ route.get('/profile',async(req,res)=>{
 })
 
 route.post('/makePost',upload.single('avatar'),async (req,res)=>{
-   
+   if(!req.user){
+       res.redirect('/users/sign-in')
+   }
     if(req.file){
         let temp = await new post({
             title : req.body.postTitle,
@@ -47,7 +49,8 @@ route.post('/makePost',upload.single('avatar'),async (req,res)=>{
             email : req.user.email,
             branch : req.user.Branch,
             specialist : req.user.Specilist,
-            like :req.body.link,        
+            like :req.body.link,    
+            pic :req.user.profile,    
             media : '/images/'+  d + 'avatar' + path.extname(req.file.originalname)
         })
         temp.save()
@@ -63,7 +66,9 @@ route.post('/makePost',upload.single('avatar'),async (req,res)=>{
             email : req.user.email,
             branch : req.user.Branch,
             specialist : req.user.Specilist,
-            like : req.body.link,        
+            like : req.body.link,  
+            pic :req.user.profile,    
+
         })
         temp.save()
         console.log(req.user)
