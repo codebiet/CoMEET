@@ -77,8 +77,22 @@
       </tbody>
     </table>
     <form action="/profile" method="get">
-      <center><button type="button" class="btn btn-primary">Edit</button></center>
+      <center><button type="submit" class="btn btn-primary">Edit</button></center>
      </form>
   </div>
 </div>
+
+<link rel="stylesheet" href="/css/chat_box.css">
+
+<section>
+  <%- include('_chat_box') -%>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
+
+<script>
+// new ChatEngine('user-chat-box', '<%= locals.user.email %>')
+    new ChatEngine('user-chat-box', '<%= locals.user.name %>')
+</script>
 

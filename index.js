@@ -14,8 +14,10 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo')(session);
 
-
-
+const chatServer = require('http').Server(app);
+const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
+chatServer.listen(5000);
+console.log('chat server is listening on port 5000');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
