@@ -21,7 +21,14 @@ let upload = multer({
 })
 
 
-
+route.post('/createheart',async(req,res)=>{
+  
+    let result = await post.findOne({title : req.body.postname})
+    result.heart = req.body.data
+    result.save()
+    console.log(req.body)
+    res.send(result)
+})
 route.get('/s',async(req,res)=>{
 // console.log(req.session.count++)
 //     res.send('req.session.count')
@@ -51,6 +58,7 @@ route.post('/makePost',upload.single('avatar'),async (req,res)=>{
             specialist : req.user.Specilist,
             like :req.body.link,    
             pic :req.user.profile,    
+            heart : 0,
             media : '/images/'+  d + 'avatar' + path.extname(req.file.originalname)
         })
         temp.save()
