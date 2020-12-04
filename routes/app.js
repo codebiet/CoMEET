@@ -64,7 +64,17 @@ let upload = multer({
       result.internship_organisation = req.body.organisation2,
       result.skills=req.body.skills,
       result.hobbies=req.body.hobbies,
-      result.profile = '/profile/'+  d + 'avatar' + path.extname(req.file.originalname)
+      result.profile = (()=>{
+        if(req.file){
+          return '/profile/'+  d + 'avatar' + path.extname(req.file.originalname)
+        }
+        else if(result.profile == '/images/1.png' || result.profile == undefined){
+          return '/images/1.png'
+        }
+        else{
+          return result.profile
+        }
+      })();
     req.user.name = req.body.name
     result.save();
     console.log(result);;

@@ -12,18 +12,18 @@ module.exports.SignIn=(req,res)=>{
         return res.redirect('/users/profile')
     }
 
-
     return res.render('user_sign_in',{
         title:'Sign In Page'
     })
 }
 
 // render the sign up page 
-module.exports.SignUp=(req,res)=>{
+module.exports.SignUp=async (req,res)=>{
     if (req.isAuthenticated()) {
+
+   
         return res.redirect('/users/profile')
     }
-
     return res.render('user_sign_up',{
         title:'Sign Up Page'
     })
