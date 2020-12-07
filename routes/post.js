@@ -41,11 +41,11 @@ route.get('/profile',async(req,res)=>{
     console.log(req.query)
     let result = await u.findOne({email  : avatar})
     res.render('user_profile1',{user : result})
-})
+});
 
 route.post('/makePost',upload.single('avatar'),async (req,res)=>{
    if(!req.user){
-       res.redirect('/users/sign-in')
+       res.redirect('/users/sign-in');
    }
     if(req.file){
         let temp = await new post({
@@ -61,8 +61,8 @@ route.post('/makePost',upload.single('avatar'),async (req,res)=>{
             heart : 0,
             media : '/images/'+  d + 'avatar' + path.extname(req.file.originalname)
         })
-        temp.save()
-        console.log(req.user)
+        temp.save();
+        console.log(req.user);
         return res.redirect('/');
     }
     else{
@@ -77,12 +77,12 @@ route.post('/makePost',upload.single('avatar'),async (req,res)=>{
             like : req.body.link,  
             pic :req.user.profile,    
 
-        })
-        temp.save()
-        console.log(req.user)
-        return res.redirect('/')
+        });
+        temp.save();
+        console.log(req.user);
+        return res.redirect('/');
     }
 })
 
 
-module.exports = route
+module.exports = route;
