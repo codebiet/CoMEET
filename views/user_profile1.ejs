@@ -515,8 +515,10 @@ color:#fff;
     max-width: none
 }
 .container-overlap+.container-lg, .container-overlap+.container-md, .container-overlap+.container-sm, .container-overlap+.container-xs {
+    background-color: black;
     padding-top: 0;
     margin-top: -32px;
+    
 }
 .media-right,
 .media>.pull-right {
@@ -552,13 +554,16 @@ color:#fff;
     padding-left: 0;
     list-style: none
 }
+.colorabc{
+background-color: black;
+}
 </style>
 <h2>CoMEET | profile page</h2>
 <!-- //////////////////////////////////////////////// -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <section class="container  ng-scope ng-fadeInLeftShort" >
-<!-- uiView:  --><div class="ng-fadeInLeftShort ng-scope" style="border-radius:30px;">
-<div class="container-overlap container-sm  ng-scope" style="background-color: #3333;">
+<!-- uiView:  --><div class="ng-fadeInLeftShort ng-scope " style="border-radius:30px; background-color: black;">
+<div style="background-color: black;" class="container-overlap container-sm  ng-scope colorabc">
   <div class="media m0 pv">
     <div class="media-left"><a href="#"><img src=<%= user.profile%> alt="User" class="media-object img-circle thumb64"></a></div>
     <div class="media-body media-middle">
