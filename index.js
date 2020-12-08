@@ -2,7 +2,8 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
-
+const port= process.env.PORT;
+const host = '0.0.0.0'
 const db = require('./config/mongoose')
 const bodyParser = require('body-parser')
 const expressLayouts = require('express-ejs-layouts');
@@ -15,8 +16,8 @@ const MongoStore = require('connect-mongo')(session);
 
 const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
-
-
+chatServer.listen(5000);
+console.log('chat server is listening on port 5000');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -71,16 +72,6 @@ app.use(passport.setAuthenticatedUser);
 app.use('/', require('./routes'));
 // app.use('/post',require('./routes/post').route())
 // fire up sever
-// let port2 = process.env.PORT;
-// if (port2 == null || port2 == "") {
-//   port2 = 3000;
-// }
-// app.listen(port2, function() {
-//   console.log("Server started at 3000");
-// });
-let port1 = process.env.PORT;
-
-
-chatServer.listen(port1, function() {
-  console.log("Chat Server started at 4000");
-});
+app.listen(port,host,()=>{
+    console.log('server started at http://localhost:4333')
+})
