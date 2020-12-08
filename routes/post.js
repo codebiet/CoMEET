@@ -61,7 +61,7 @@ route.post('/makePost',upload.single('avatar'),async (req,res)=>{
             heart : 0,
             media : '/images/'+  d + 'avatar' + path.extname(req.file.originalname)
         })
-        temp.save();
+        await temp.save();
         console.log(req.user);
         return res.redirect('/');
     }
