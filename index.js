@@ -15,15 +15,8 @@ const MongoStore = require('connect-mongo')(session);
 
 const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
-<<<<<<< HEAD
-let port1 = process.env.PORT;
-=======
-let port1 = 5000;
->>>>>>> 11323e30fc236203de42402ee6ea97037417e358
 
-chatServer.listen(port1, function() {
-  console.log("Chat Server started at 4000");
-});
+
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -85,3 +78,9 @@ app.use('/', require('./routes'));
 // app.listen(port2, function() {
 //   console.log("Server started at 3000");
 // });
+let port1 = process.env.PORT;
+
+
+chatServer.listen(port1, function() {
+  console.log("Chat Server started at 4000");
+});
