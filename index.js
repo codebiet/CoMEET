@@ -15,10 +15,10 @@ const MongoStore = require('connect-mongo')(session);
 
 const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
-let port1 = process.env.PORT||4333;
+let port1 = 5000;
 
 chatServer.listen(port1, function() {
-  console.log("Server started at 4000");
+  console.log("Chat Server started at 4000");
 });
 
 // parse application/x-www-form-urlencoded

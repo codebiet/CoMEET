@@ -46,8 +46,8 @@ let upload = multer({
   // const Profile = mongoose.model("Profile", profileSchema);
   
   app.get("/",async function(req, res) {
-    console.log(req.user)
     let result = await user.findOne({name : req.user.name}) 
+    console.log(result)
     res.render("profile",{result});
   });
 
@@ -75,10 +75,10 @@ let upload = multer({
           return result.profile
         }
       })();
-    req.user.name = req.body.name
-    result.save();
+ 
+    await result.save();
     console.log(result);;
-    res.redirect("users/profile")
+    return res.redirect("users/profile")
   });
 
 module.exports = app
