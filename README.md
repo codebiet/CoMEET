@@ -15,3 +15,6 @@ CoMEET:.
 └───views // contains all hbs and ejs files 
     └───partials //components use in a web pages
 </pre>
+## Start : 
+$ npm start
+
