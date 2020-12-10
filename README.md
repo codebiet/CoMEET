@@ -21,7 +21,8 @@ CoMEET:.
     └───partials //components use in a web pages
 </pre>
 ## Start : 
-$ npm start
+1. $ npm i      // install all dependcies...
+2. $ npm start  // start local server
 ## Procedure:
     # Signup and Login
         1.Signup your account (Signin in case of already user)
