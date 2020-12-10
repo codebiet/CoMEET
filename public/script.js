@@ -33,7 +33,12 @@ $(()=>{
         $(this).children().children().text(parseInt($(this).children().children().text()) - 1)
      
         flag =1
-
+        $.post('/posts/createheart',{
+            data : $(this).children().children().text(),
+            postname  : $(this).prev().children()[0].innerText
+        },(data)=>{
+            console.log(data)
+        })
     }
         
     })
