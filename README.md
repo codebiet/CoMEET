@@ -17,4 +17,25 @@ CoMEET:.
 </pre>
 ## Start : 
 $ npm start
+## Procedure:
+    # Signup and Login
+        1.Signup your account (Signin in case already user)
+    # Post Section (or Home Page)
+        1.Create Your Post 
+            a.enter your title.
+            b.enter post description.
+            c.enter link if any (eg.googke form link).
+            d.upload media (eg.video image)
+        2.Recent Post
+            a.view : you can user profile.
+            b.like : gives like to that post.
+    # Profile
+        1.This Page show your Updated Profile.
+        2.You Can your profile by clicking on edit button.
+## Bugs : 
+    # Chat Box :
+        misbehaving in some section.
+    # It is not Responsive Site highly recommend to use this site in only desktop mode.
+        
+        
 
