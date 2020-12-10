@@ -9,7 +9,7 @@ module.exports.profile =(req, res)=>{
 //render the sign In page 
 module.exports.SignIn=(req,res)=>{
     if (req.isAuthenticated()) {
-        return res.redirect('/users/profile')
+        return res.render('home')
     }
 
     return res.render('user_sign_in',{
