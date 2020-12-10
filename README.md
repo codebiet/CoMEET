@@ -24,12 +24,12 @@ CoMEET:.
 $ npm start
 ## Procedure:
     # Signup and Login
-        1.Signup your account (Signin in case already user)
+        1.Signup your account (Signin in case of already user)
     # Post Section (or Home Page)
         1.Create Your Post 
             a.enter your title.
             b.enter post description.
-            c.enter link if any (eg.googke form link).
+            c.enter link if any (eg.google form link).
             d.upload media (eg.video image)
         2.Recent Post
             a.view : you can see user's profile.
