@@ -76,6 +76,7 @@ route.post('/makePost',upload.single('avatar'),async (req,res)=>{
             specialist : req.user.Specilist,
             like : req.body.link,  
             pic :req.user.profile,    
+            heart : 0,
 
         });
         temp.save();
