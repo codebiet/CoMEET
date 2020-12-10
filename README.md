@@ -32,7 +32,7 @@ $ npm start
             c.enter link if any (eg.googke form link).
             d.upload media (eg.video image)
         2.Recent Post
-            a.view : you can user profile.
+            a.view : you can see user's profile.
             b.like : gives like to that post.
     # Profile
         1.This Page show your Updated Profile.
