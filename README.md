@@ -1,13 +1,4 @@
-# CoMEET
-This App is made in a NodeJS,Through this site freshers can easily interact with seniors and get updated with the events which are going to be conducted in a college.  
-## Developers :
-    Abhishek Pal.
-    Adarsh Chaudhary.
-    Shubham Gupta.
-    Umang Gupta
-## Project Structure:
-<pre>
-CoMEET:.
+#CoMEET:.
 ├───config
 ├───controllers
 ├───models //contains all schema 
